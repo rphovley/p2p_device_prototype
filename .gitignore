@@ -1,0 +1,27 @@
+# Xcode / Swift
+.build/
+*.xcodeproj/
+xcuserdata/
+DerivedData/
+.swiftpm/
+*.hmap
+*.ipa
+*.dSYM.zip
+*.dSYM
+
+# XcodeGen-generated Info.plist / entitlements (regenerate with `xcodegen generate`)
+**/Generated/
+
+# Node / CDK
+node_modules/
+dist/
+dist-test/
+cdk.out/
+*.tsbuildinfo
+npm-debug.log*
+
+# macOS
+.DS_Store
+
+# Claude Code session state
+.claude/

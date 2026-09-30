@@ -1,0 +1,35 @@
+name: P2PExampleMac
+options:
+  bundleIdPrefix: com.example.p2pexample
+  deploymentTarget:
+    macOS: "14.0"
+
+packages:
+  PairingKit:
+    path: ../shared
+
+targets:
+  P2PExampleMac:
+    type: application
+    platform: macOS
+    sources:
+      - Sources
+    dependencies:
+      - package: PairingKit
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.example.p2pexample.mac
+        MARKETING_VERSION: "0.1.0"
+        SWIFT_VERSION: "6.0"
+        ENABLE_HARDENED_RUNTIME: true
+    info:
+      path: Generated/Info.plist
+      properties:
+        LSUIElement: true
+        NSBluetoothAlwaysUsageDescription: "Used to find and send messages to your paired phone."
+    entitlements:
+      path: Generated/P2PExampleMac.entitlements
+      properties:
+        com.apple.security.app-sandbox: true
+        com.apple.security.device.bluetooth: true
+        com.apple.security.network.client: true

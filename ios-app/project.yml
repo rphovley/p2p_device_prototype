@@ -1,0 +1,37 @@
+name: P2PExampleIOS
+options:
+  bundleIdPrefix: com.example.p2pexample
+  deploymentTarget:
+    iOS: "17.0"
+
+packages:
+  PairingKit:
+    path: ../shared
+
+targets:
+  P2PExampleIOS:
+    type: application
+    platform: iOS
+    sources:
+      - Sources
+    dependencies:
+      - package: PairingKit
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.example.p2pexample.ios
+        MARKETING_VERSION: "0.1.0"
+        SWIFT_VERSION: "6.0"
+        TARGETED_DEVICE_FAMILY: "1"
+    info:
+      path: Generated/Info.plist
+      properties:
+        UILaunchScreen: {}
+        UIBackgroundModes:
+          - bluetooth-central
+          - remote-notification
+        NSBluetoothAlwaysUsageDescription: "Used to find and connect to your paired computer."
+        NSCameraUsageDescription: "Used to scan the pairing QR code shown by the Mac app."
+    # No entitlements block for now: the Push Notifications capability (aps-environment)
+    # isn't supported by a personal/free Apple Developer team and blocks automatic
+    # signing entirely. Re-add `entitlements: { properties: { aps-environment: development } }`
+    # when M5 (push fallback) is actually implemented and a paid team is available.
